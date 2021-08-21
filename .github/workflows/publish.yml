@@ -16,6 +16,7 @@ jobs:
         with:
           dotnet-version: '5.0.x'
       - name: Build
+        shell: bash
         run: |
           tag=$(git describe --tags --abbrev=0)
           release_name="crypto-cli-$tag-win-x64"
