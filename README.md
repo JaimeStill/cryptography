@@ -4,6 +4,10 @@
 
 Experiments written through studying the [Cryptography Model](https://docs.microsoft.com/en-us/dotnet/standard/security/cryptography-model).
 
+[![Publish](https://github.com/JaimeStill/cryptography/actions/workflows/publish.yml/badge.svg)](https://github.com/JaimeStill/cryptography/actions/workflows/publish.yml)
+
+## Latest Release: [crypto-cli](https://github.com/JaimeStill/cryptography/releases/tag/v0.1-alpha)  
+
 Solution | Project Type | Arguments | Description
 ---------|--------------|-----------|------------
 **GeneratingKeys** | *console* | N/A | Writes out information based on [Generating keys for encryption and decryption](https://docs.microsoft.com/en-us/dotnet/standard/security/generating-keys-for-encryption-and-decryption).
