@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug-encryption",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/crypto-cli/bin/Debug/net5.0/crypto-cli.dll",
+            "args": [
+                "encrypt",
+                "--f",
+                ".\\README.md",
+                "--r",
+                ".\\encrypted-README.md"
+            ],
+            "cwd": "${workspaceFolder}/crypto-cli",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "debug-decryption",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/crypto-cli/bin/Debug/net5.0/crypto-cli.dll",
+            "args": [
+                "decrypt",
+                "--f",
+                ".\\encrypted-README.md",
+                "--r",
+                ".\\decrypted-README.md"
+            ],
+            "cwd": "${workspaceFolder}/crypto-cli",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}

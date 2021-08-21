@@ -31,7 +31,7 @@ namespace EncryptFile
             aes.IV = aesConfig.iv;
             aes.Key = aesConfig.key;
 
-            var encryptedFile = await aes.EncryptFile(rsa, file);
+            var encryptedFile = await aes.EncryptFile(file);
             Console.WriteLine($"File encrypted at {encryptedFile.FullName}.");
         }
 

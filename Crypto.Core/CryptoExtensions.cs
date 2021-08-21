@@ -25,7 +25,7 @@ namespace Crypto.Core
                 : await rsa.RegisterAesKeys();
         }
 
-        public static async Task<FileInfo> EncryptFile(this Aes aes, RSACryptoServiceProvider rsa, FileInfo file)
+        public static async Task<FileInfo> EncryptFile(this Aes aes, FileInfo file)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Crypto.Core
             }
         }
 
-        public static async Task<FileInfo> DecryptFile(this Aes aes, RSACryptoServiceProvider rsa, FileInfo file)
+        public static async Task<FileInfo> DecryptFile(this Aes aes, FileInfo file)
         {
             try
             {

@@ -12,16 +12,28 @@ namespace AsymmetricKeyContainer
         {
             try
             {
-                SaveContainerKey("MyKeyContainer");
                 GetContainerKey("MyKeyContainer");
                 DeleteContainerKey("MyKeyContainer");
-                SaveContainerKey("MyKeyContainer");
-                DeleteContainerKey("MyKeyContainer");
+                SaveMachineContainerKey("MyMachineContainer");
+                DeleteContainerKey("MyMachineContainer");
             }   
             catch (CryptographicException e)
             {
                 Console.WriteLine(e.Message);
             }         
+        }
+
+        static void SaveMachineContainerKey(string containerName)
+        {
+            var parameters = new CspParameters
+            {
+                KeyContainerName = containerName,
+                Flags = CspProviderFlags.UseMachineKeyStore
+            };
+
+            using var rsa = new RSACryptoServiceProvider(parameters);
+
+            Console.WriteLine($"Key added to container: \n {rsa.ToXmlString(true)}");
         }
 
         static void SaveContainerKey(string containerName)

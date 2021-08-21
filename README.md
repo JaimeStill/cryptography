@@ -12,3 +12,4 @@ Solution | Project Type | Arguments | Description
 **Crypto.Core** | *classlib* | N/A | Defines extension methods for the **EncryptFile** and **DecryptFile** solutions.
 **EncryptFile** | *console* | `path` | Encrypts the file provided by the `path` parameter.
 **DecryptFile** | *console* | `path` | Decrypts the file provided by the `path` parameter.
+**crypto-cli** | *console* | [See docs](./crypto-cli/README.md) | A comprehensive command line utility that includes the ability to: Register and RSA Key, Remove an RSA Key, Generate an AES key file, Encrypt a file, and Decrypt a file.

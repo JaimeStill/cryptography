@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto.Core", "Crypto.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecryptFile", "DecryptFile\DecryptFile.csproj", "{6943A6E4-1B68-4D28-8216-F2FAB0937B9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crypto-cli", "crypto-cli\crypto-cli.csproj", "{09A4A2FE-68BF-4006-B265-00D9761CCD79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{6943A6E4-1B68-4D28-8216-F2FAB0937B9E}.Release|x64.Build.0 = Release|Any CPU
 		{6943A6E4-1B68-4D28-8216-F2FAB0937B9E}.Release|x86.ActiveCfg = Release|Any CPU
 		{6943A6E4-1B68-4D28-8216-F2FAB0937B9E}.Release|x86.Build.0 = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|x64.Build.0 = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Debug|x86.Build.0 = Debug|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|x64.ActiveCfg = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|x64.Build.0 = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|x86.ActiveCfg = Release|Any CPU
+		{09A4A2FE-68BF-4006-B265-00D9761CCD79}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

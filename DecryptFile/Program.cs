@@ -31,7 +31,7 @@ namespace DecryptFile
             aes.IV = aesConfig.iv;
             aes.Key = aesConfig.key;
 
-            var decryptedFile = await aes.DecryptFile(rsa, file);
+            var decryptedFile = await aes.DecryptFile(file);
             Console.WriteLine($"File decrypted at {decryptedFile.FullName}.");
         }
 
