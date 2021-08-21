@@ -1,6 +1,7 @@
 **/bin
 **/obj
 **/*.txt
-aes.crypt
+**/.packages
+**/*.crypt
 decrypted-*
 encrypted-*
