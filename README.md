@@ -8,6 +8,8 @@ Experiments written through studying the [Cryptography Model](https://docs.micro
 
 ## Latest Release: [crypto-cli](https://github.com/JaimeStill/cryptography/releases/tag/v0.1-alpha)  
 
+[![crypto-cli](https://user-images.githubusercontent.com/14102723/130334492-ee7030ce-e51e-4a91-bf3c-ca4964e5b272.gif)](https://user-images.githubusercontent.com/14102723/130334492-ee7030ce-e51e-4a91-bf3c-ca4964e5b272.gif)
+
 Solution | Project Type | Arguments | Description
 ---------|--------------|-----------|------------
 **GeneratingKeys** | *console* | N/A | Writes out information based on [Generating keys for encryption and decryption](https://docs.microsoft.com/en-us/dotnet/standard/security/generating-keys-for-encryption-and-decryption).
