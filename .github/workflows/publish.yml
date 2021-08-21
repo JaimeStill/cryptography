@@ -16,15 +16,11 @@ jobs:
         with:
           dotnet-version: '5.0.x'
       - name: Build
-        shell: bash
         run: |
           tag=$(git describe --tags --abbrev=0)
           release_name="crypto-cli-$tag-win-x64"
-
-          dotnet publish crypto-cli/crypto-cli.csproj -f net5.0 -r "win-x64" -c Release -o "$release_name"
-
+          dotnet publish crypto-cli/crypto-cli.csproj -f net5.0 -r win-x64 -c Release -o "$release_name"
           7z a -tzip "${release_name}.zip" "/${release_name}/*"
-
           rm -r "$release_name"
       - name: Publish
         uses: softprops/action-gh-release@v1
