@@ -245,11 +245,30 @@ namespace CryptoCli
                 ? await RetrieveAes(aesPath, key)
                 : await GenerateAes(aesPath, key, false);
 
+        static async Task InjectIv(this FileStream fs, byte[] iv) => await fs.WriteAsync(iv, 0, iv.Length);
+
+        static async Task ProcessIv(this FileStream fs, byte[] iv)
+        {
+            int numBytesToRead = iv.Length;
+            int numBytesRead = 0;
+
+            while (numBytesToRead > 0)
+            {
+                var n = await fs.ReadAsync(iv, numBytesRead, numBytesToRead);
+                if (n == 0) break;
+
+                numBytesRead += n;
+                numBytesToRead -= n;
+            }
+        }
+
         static async Task EncryptFile(this Aes aes, string file, string result)
         {
             try
             {
                 using FileStream output = new(result, FileMode.CreateNew);
+
+                await output.InjectIv(aes.IV);
 
                 using CryptoStream cs = new(
                     output,
@@ -273,6 +292,9 @@ namespace CryptoCli
         static async Task DecryptFile(this Aes aes, string file, string result)
         {
             using FileStream input = new(file, FileMode.Open);
+
+            await input.ProcessIv(aes.IV);
+
             using CryptoStream cs = new(
                 input,
                 aes.CreateDecryptor(),
