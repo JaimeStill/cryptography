@@ -307,8 +307,6 @@ namespace CryptoCli
                     await cs.WriteAsync(buffer, 0, read);
                     read = await input.ReadAsync(buffer, 0, buffer.Length);
                 }
-
-                await cs.FlushFinalBlockAsync();                
             }
             catch (Exception ex)
             {
