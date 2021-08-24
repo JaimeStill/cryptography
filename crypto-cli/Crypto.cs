@@ -50,6 +50,13 @@ namespace CryptoCli
 
                 using var rsa = RetrieveRsa(key);
                 using var aes = Aes.Create();
+
+                aes.Mode = CipherMode.CBC;
+                aes.KeySize = 128;
+                aes.BlockSize = 128;
+                aes.FeedbackSize = 128;
+                aes.Padding = PaddingMode.Zeros;
+
                 aes.GenerateIV();
                 aes.GenerateKey();
 
@@ -125,6 +132,13 @@ namespace CryptoCli
                 var aesConfig = await InitializeAes(aesPath, key);
 
                 using var aes = Aes.Create();
+
+                aes.Mode = CipherMode.CBC;
+                aes.KeySize = 128;
+                aes.BlockSize = 128;
+                aes.FeedbackSize = 128;
+                aes.Padding = PaddingMode.Zeros;
+
                 aes.IV = aesConfig.iv;
                 aes.Key = aesConfig.key;
 
@@ -164,6 +178,13 @@ namespace CryptoCli
                 var aesConfig = await InitializeAes(aesPath, key);
 
                 using var aes = Aes.Create();
+
+                aes.Mode = CipherMode.CBC;
+                aes.KeySize = 128;
+                aes.BlockSize = 128;
+                aes.FeedbackSize = 128;
+                aes.Padding = PaddingMode.Zeros;
+
                 aes.IV = aesConfig.iv;
                 aes.Key = aesConfig.key;
 
@@ -276,12 +297,18 @@ namespace CryptoCli
                     CryptoStreamMode.Write
                 );
 
-                using StreamWriter writer = new(cs);
-
                 using FileStream input = new(file, FileMode.Open);
-                using StreamReader reader = new(input);
+                
+                var buffer = new byte[1024];
+                var read = await input.ReadAsync(buffer, 0, buffer.Length);
 
-                await writer.WriteAsync(await reader.ReadToEndAsync());
+                while (read > 0)
+                {
+                    await cs.WriteAsync(buffer, 0, read);
+                    read = await input.ReadAsync(buffer, 0, buffer.Length);
+                }
+
+                await cs.FlushFinalBlockAsync();                
             }
             catch (Exception ex)
             {
@@ -301,12 +328,16 @@ namespace CryptoCli
                 CryptoStreamMode.Read
             );
 
-            using StreamReader reader = new(cs);
+            using FileStream output = new(result, FileMode.CreateNew);            
+            
+            var buffer = new byte[1024];
+            var read = await cs.ReadAsync(buffer, 0, buffer.Length);
 
-            using FileStream output = new(result, FileMode.CreateNew);
-            using StreamWriter writer = new(output);
-
-            await writer.WriteAsync(await reader.ReadToEndAsync());
+            while (read > 0)
+            {
+                await output.WriteAsync(buffer, 0, read);
+                read = await cs.ReadAsync(buffer, 0, buffer.Length);
+            }
         }
     }
 }
